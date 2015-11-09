@@ -64,16 +64,21 @@ html(lang='en')
           .col-md-4.col-md-offset-4
             form.form-inline
               .form-group
-                select.form-control#location
+                select(required).form-control#location
+                  option(value = '')
                   option(value='Margaritas') Margaritas
                   option(value='Tarascos') Tarascos
                   option(value='Tabachines') Tabachines
                   option(value='Torrecillas') Torrecillas
-                  option(value='Heroes') Héroes de la Reforma
+                  option(value='Heroes de la Reforma') Héroes de la Reforma
               button.btn.btn-danger.pull-right(type='submit') Enviar Alerta  
                 span.glyphicon.glyphicon-send
+          .col-md-2
+            h4#okDiv.text-success(hidden) Alerta enviada
+              
 
-        .row(style='margin-top:4%')
+
+        .row(style='margin-top:2%')
           .col-md-8.col-md-offset-2
             p(align='center')
               | Espera Mientras una de nuestras unidades de Emergencia responda a tu Alerta, esto puede tardar unos minutos.

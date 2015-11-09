@@ -5,6 +5,9 @@ $(document).ready(function(){
 
 		socket.emit('BusAlert',$('#location').val());
 		$('#location').val('');
+
+		$('#okDiv').show('slow')
+
 		return false;
 
 	})
