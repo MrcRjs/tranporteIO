@@ -1,12 +1,23 @@
+/**
+ * Module dependencies.
+ */
 var MongoClient   = require('mongodb').MongoClient;
 var assert        = require('assert');
 var gps           = require("gps-tracking");
 var express       = require('express');
+var bodyParser    = require('body-parser');
+var logger        = require('morgan');
 var routes        = require('./routes');
 
 var app = module.exports = express.createServer();
 var io            = require('socket.io')(app);
 var mongourl = 'mongodb://localhost:27017/gps';
+
+var express = require('express')
+  , routes = require('./routes');
+
+var express = require('express')
+  , routes = require('./routes');
 
 var options = {
   'debug'                 : false,
@@ -14,12 +25,20 @@ var options = {
   'device_adapter'        : "TK103"
 }
 
-// Configuración
+var app = module.exports = express.createServer();
+
+// Configuration
 
 app.configure(function(){
+  app.set('views', './views');
+  app.set('view options', {layout: false});
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
   app.use(express.bodyParser());
+  
+  app.use(logger('dev'));
+  app.use(bodyParser.json({limit: '50mb'}));
+  app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
   app.use(express.methodOverride());
   app.use(app.router);
   app.use(express.static(__dirname + '/public'));
@@ -33,6 +52,7 @@ app.configure('production', function(){
   app.use(express.errorHandler());
 });
 
+// Routes
 
 MongoClient.connect(mongourl, function(err, db) {
   assert.equal(null, err);
@@ -101,6 +121,7 @@ MongoClient.connect(mongourl, function(err, db) {
   });
 });
 
+require('./routes/routes_www')(app);
 app.get('/', routes.index);
 
 app.listen(4000, function(){

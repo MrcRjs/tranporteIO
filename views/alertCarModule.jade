@@ -1,0 +1,55 @@
+doctype html
+html(lang='en')
+  head
+    meta(http-equiv="Content-type" content="text/html" ,charset="UTF-8")
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title| Modulo de Alerta
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css',integrity='sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==', crossorigin='anonymous')
+    link(href='stylesheets/bootstrap.min.css',rel='stylesheet', type='text/css')
+    link(href='stylesheets/style.css',rel='stylesheet', type='text/css')
+    link(href='https://fonts.googleapis.com/css?family=Raleway', rel='stylesheet', type='text/css')
+
+    script(type='text/javascript', src = 'js/jquery-2.1.1.js')
+    script(type='text/javascript', src = 'js/angular.min.js')
+    script(type='text/javascript', src = 'js/bootstrap.min.js')
+    script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular-cookies.js')
+  body
+    header
+            nav.navbar.navbar-default.navbar-fixed-top(style='position:relative')
+              .container-fluid
+                .navbar-header
+                  
+                  a.navbar-brand(href='#')
+                      img(alt='Brand', src='img/vehicle12.png', height = '120%')
+                  a.navbar-brand(href='#') BRT Puebla
+                // Collect the nav links, forms, and other content for toggling
+                #bs-example-navbar-collapse-1.collapse.navbar-collapse
+                  ul.nav.navbar-nav
+                    li.active
+                      a(href='#')
+                        |   Inicio
+                        span.sr-only (current)
+                   
+                    li.dropdown
+                      a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
+                        | Modulos 
+                        span.caret
+                      ul.dropdown-menu
+                        li
+                          a(href='/AlertModule') Modulo de Alerta para Autobuses
+                        li
+                          a(href='/AlertCarModule') Modulo de Alerta para Seguridad
+                       
+                 
+                  ul.nav.navbar-nav.navbar-right
+                    li
+                      a(href='#') Nombre de Usuario
+                    li
+                      a(href='#') Cerrar Sesión
+                        
+                // /.navbar-collapse
+              // /.container-fluid
+
+
+    .container
