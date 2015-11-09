@@ -9,26 +9,12 @@ var bodyParser    = require('body-parser');
 var logger        = require('morgan');
 var routes        = require('./routes');
 
-var app = module.exports = express.createServer();
+var app           = module.exports = express.createServer();
 var io            = require('socket.io')(app);
+
 var mongourl = 'mongodb://localhost:27017/gps';
 
-var express = require('express')
-  , routes = require('./routes');
-
-var express = require('express')
-  , routes = require('./routes');
-
-var options = {
-  'debug'                 : false,
-  'port'                  : 8090,
-  'device_adapter'        : "TK103"
-}
-
-var app = module.exports = express.createServer();
-
 // Configuration
-
 app.configure(function(){
   app.set('views', './views');
   app.set('view options', {layout: false});
@@ -52,7 +38,11 @@ app.configure('production', function(){
   app.use(express.errorHandler());
 });
 
-// Routes
+var options = {
+  'debug'                 : false,
+  'port'                  : 8090,
+  'device_adapter'        : "TK103"
+}
 
 MongoClient.connect(mongourl, function(err, db) {
   assert.equal(null, err);
