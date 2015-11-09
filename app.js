@@ -4,7 +4,8 @@
  */
 
 var express = require('express');
-
+var bodyParser = require('body-parser');
+var logger = require('morgan');
 var app = module.exports = express.createServer();
 var io = require('socket.io')(app);
 
@@ -12,11 +13,16 @@ var io = require('socket.io')(app);
 
 app.configure(function(){
   app.set('views', './views');
+  app.set('view options', {layout: false});
   app.set('view engine', 'jade');
-  app.use(express.bodyParser());
+  
+  app.use(logger('dev'));
+  app.use(bodyParser.json({limit: '50mb'}));
+  app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
   app.use(express.methodOverride());
   app.use(app.router);
   app.use(express.static(__dirname + '/public'));
+
 });
 
 app.configure('development', function(){

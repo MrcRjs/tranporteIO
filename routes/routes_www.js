@@ -6,4 +6,10 @@ module.exports =(function (app){
 
 	})
 
+	app.get('/AlertCarModule', function (req, res){
+
+		res.render('alertCarModule');
+
+	})
+
 })
