@@ -14,6 +14,9 @@ html(lang='en')
     script(type='text/javascript', src = 'js/angular.min.js')
     script(type='text/javascript', src = 'js/bootstrap.min.js')
     script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular-cookies.js')
+    script(src="/socket.io/socket.io.js")
+    script(src="/js/socketIO.js")
+
   body
     header
             nav.navbar.navbar-default.navbar-fixed-top(style='position:relative')
@@ -53,3 +56,14 @@ html(lang='en')
 
 
     .container
+        .row
+          .col-md-8.col-md-offset-2
+            h3(align='center') Mantengase al pendiente de las peticione de Alerta solicitadas por las unidades de transporte de pasajeros
+
+        .row(style='margin-top:4%')
+          .col-md-8.col-md-offset-2
+          
+            .list-group#AlertList
+              a.list-group-item.list-group-item-danger(href='#',align='center')  
+                | Peticiones de Alerta Recientes
+              

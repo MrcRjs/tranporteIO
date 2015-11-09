@@ -35,6 +35,16 @@ app.configure('production', function(){
 
 // Routes
 
+io.on('connection', function (socket){
+  console.log('A new User Connected');
+  
+  socket.on('BusAlert', function (msg){
+      io.emit('BusAlert', msg);
+  })
+
+
+})
+
 require('./routes/routes_www')(app);
 
 app.listen(4000, function(){

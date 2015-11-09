@@ -14,6 +14,9 @@ html(lang='en')
     script(type='text/javascript', src = 'js/angular.min.js')
     script(type='text/javascript', src = 'js/bootstrap.min.js')
     script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular-cookies.js')
+    script(src="/socket.io/socket.io.js")
+    script(src="/js/socketIO.js")
+
   body
     header
             nav.navbar.navbar-default.navbar-fixed-top(style='position:relative')
@@ -61,7 +64,7 @@ html(lang='en')
           .col-md-4.col-md-offset-4
             form.form-inline
               .form-group
-                select.form-control
+                select.form-control#location
                   option(value='Margaritas') Margaritas
                   option(value='Tarascos') Tarascos
                   option(value='Tabachines') Tabachines
